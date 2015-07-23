@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>BBS</title>
+
+</head>
+<body>
+<p>Let's write message!</p>
+
+<form method="POST">
+	Name:<input type="text" name="name"> <br>
+	Text   :<input type="text" name="content"> <br>
+	<input type="submit" value="Submit!">
+</form>
+<ul>
+	<% var max_post = posts.length %>
+	<% for ( var i = 0; i < max_post; i++) { %>
+		<li><%=posts[i]['content'] %> - <%=posts[i]['name']%></li>
+	<%}%>
+</ul>
+
+</body>
+</html>
