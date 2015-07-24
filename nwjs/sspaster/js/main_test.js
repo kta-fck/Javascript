@@ -20,28 +20,28 @@ var button = document.getElementById('main') ;
  * 
  */
  function equal( data1 , data2 ) {
-     var hash1 = cc.createHash( 'sha1' ) ;
-     var hash2 = cc.createHash( 'sha1' ) ;
+ 	var hash1 = cc.createHash( 'sha1' ) ;
+ 	var hash2 = cc.createHash( 'sha1' ) ;
 
-     var data1_hs = hash1.update( data1 , {"input_encoding" : 'binary'} ).digest( 'hex' ) ;
-     var data2_hs = hash2.update( data2 , {"input_encoding" : 'binary'} ).digest( 'hex' ) ;
+ 	var data1_hs = hash1.update( data1 , {"input_encoding" : 'binary'} ).digest( 'hex' ) ;
+ 	var data2_hs = hash2.update( data2 , {"input_encoding" : 'binary'} ).digest( 'hex' ) ;
 
-     if ( data1_hs === data2_hs ) {
-         return true ;
-     } else {
-         return false ;
-     }
+ 	if ( data1_hs === data2_hs ) {
+ 		return true ;
+ 	} else {
+ 		return false ;
+ 	}
  }
 
  function takeSnapshot(){
-    // 二重押し禁止
-    button.disabled = true ;
-    tp = fs.readFileSync( setting.imgFile , {
+	// 二重押し禁止
+	button.disabled = true ;
+	tp = fs.readFileSync( setting.imgFile , {
     // 画像を取得
     "encoding" : 'base64'
         } ) ; //readFile
 
-    export_image.exec( setting.pgm,function( err , stdout, stderr ){
+	export_image.exec( setting.pgm,function( err , stdout, stderr ){
         var ri = fs.readFileSync( setting.imgFile , {
            "encoding" : 'base64'
         } ) ; //readFile
@@ -69,7 +69,7 @@ var button = document.getElementById('main') ;
                 alert(a.id) ;
             }
 
-            img_dom.addEventListener("click", function(){test(this);}, false);
+            img_dom.addEventListener("click", function(){test(this)}, false);
 
             
              // img_dom = document.createElement( 'img' );
@@ -77,16 +77,16 @@ var button = document.getElementById('main') ;
              // img_dom.src = '' ;
              // img_dom.src = imgFile ;
              imageDom.appendChild( img_dom ); 
-                // update tempalte File
-                console.log( imgFile ) ;
-                fs.writeFileSync( setting.imgFile , ri , {
-                    "encoding" : 'base64'
-                } ) ; 
+	            // update tempalte File
+	            console.log( imgFile ) ;
+	            fs.writeFileSync( setting.imgFile , ri , {
+	            	"encoding" : 'base64'
+	            } ) ; 
 
-                counter++ ;
-                // 処理が終わった
-                button.disabled = false ;
-            }) ; // writeFile
+	            counter++ ;
+            	// 処理が終わった
+            	button.disabled = false ;
+	        }) ; // writeFile
        } else {
            console.log('same data') ;
            button.disabled = false ;
@@ -100,8 +100,8 @@ var button = document.getElementById('main') ;
 
 // 監視をして変更があればDOM追加。
 fs.watch(setting.imgFile,function(ev, fn) {
-    if( ev === 'change' ) {
-        console.log('File changed.');
+	if( ev === 'change' ) {
+		console.log('File changed.');
         // takeSnapshot() ;
     } else {
     }
@@ -109,7 +109,7 @@ fs.watch(setting.imgFile,function(ev, fn) {
 
 
 function appClose(){
-    app.quit();
+	app.quit();
 }
 // 
 
