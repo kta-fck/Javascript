@@ -2,3 +2,5 @@ node_modules/
 TestSample/
 *.exe
 *.[png|jpg]
+*.nw
+*.zip
