@@ -1,3 +1,0 @@
-//
-
-console.('Hello World');
